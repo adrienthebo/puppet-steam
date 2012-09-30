@@ -31,3 +31,10 @@ require multiple passes to actually do what you want.
 ### Support for the steamcmd tool
 
 This tool requires a valid steam login, and I've never played with it.
+
+Steam Server Documentation
+--------------------------
+
+  * [Steam support - setting up a standalone dedicated server](https://support.steampowered.com/kb_article.php?ref=6758-TCMF-2234)
+  * [steamcmd - Valve Developer Community](https://developer.valvesoftware.com/wiki/SteamCMD)
+
