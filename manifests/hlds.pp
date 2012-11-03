@@ -23,7 +23,6 @@
 class steam::hlds {
 
   include steam::base
-  include staging
 
   # HLDS and steamcmd can't be in the same dir
   $hlds_root = "${steam::base::home}/hlds"
@@ -31,16 +30,16 @@ class steam::hlds {
   $updatetool        = 'hldsupdatetool.bin'
   $updatetool_url    = "http://storefront.steampowered.com/download/${updatetool}"
 
-  $staging_path      = "${staging::path}/${module_name}"
+  $staging_root      = $steam::base::staging_root
 
-  $updatetool_source = "${staging_path}/${updatetool}"
+  $updatetool_source = "${staging_root}/${updatetool}"
   $updatetool_dest   = "${hlds_root}/${updatetool}"
   $steam_bin         = "${hlds_root}/steam"
 
   file { $hlds_root:
     ensure => directory,
-    owner  => $user,
-    group  => $group,
+    owner  => $steam::base::user,
+    group  => $steam::base::group,
     backup => false,
   }
 
@@ -52,8 +51,8 @@ class steam::hlds {
   file { $updatetool_dest:
     ensure => present,
     mode   => '755',
-    owner  => 'steam',
-    group  => 'steam',
+    owner  => $steam::base::user,
+    group  => $steam::base::group,
     source => $updatetool_source,
   }
 
@@ -61,8 +60,8 @@ class steam::hlds {
     command   => "/bin/echo -e 'yes' | ${updatetool_dest}",
     cwd       => $home,
     path      => '/usr/bin:/bin',
-    user      => $user,
-    group     => $group,
+    user      => $steam::base::user,
+    group     => $steam::base::group,
     require   => File[$updatetool_dest],
     creates   => $steam_bin,
     logoutput => on_failure,

@@ -27,7 +27,10 @@
 #
 # Adrien Thebo <adrien@somethingsinistral.net>
 #
-class steam::server($user = 'steam', $group = 'steam', $home = '/srv/steam') {
+class steam::base($user = 'steam', $group = 'steam', $home = '/srv/steam') {
+
+  include staging
+
   group { $group:
     ensure => present,
   }
@@ -45,4 +48,6 @@ class steam::server($user = 'steam', $group = 'steam', $home = '/srv/steam') {
     group  => $group,
     backup => false,
   }
+
+  $staging_root = "${staging::path}/${module_name}"
 }
