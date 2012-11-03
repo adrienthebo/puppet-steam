@@ -8,3 +8,5 @@ description 'Optimize your procrastination by using Puppet to install and manage
 
 source       'https://github.com/adrienthebo/puppet-steam'
 project_page 'https://github.com/adrienthebo/puppet-steam'
+
+dependency 'nanliu/staging', '0.x'
