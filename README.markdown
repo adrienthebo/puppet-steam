@@ -2,12 +2,14 @@ puppet-steam
 ============
 
 Reduce your productivity by 500% by using Puppet to install Steam dedicated
-servers!
+servers! This module will bootstrap the necessary components to allow you to
+install servers.
 
 Synopsis
 --------
 
     include steam::hlds
+    include steam::steamcmd
     # LET THE PROCRASTINATION BEGIN
 
 Requirements
@@ -27,10 +29,6 @@ TODO
 
 This is non-trivial because the insane behavior of the `steam` command may
 require multiple passes to actually do what you want.
-
-### Support for the steamcmd tool
-
-This tool requires a valid steam login, and I've never played with it.
 
 Steam Server Documentation
 --------------------------
