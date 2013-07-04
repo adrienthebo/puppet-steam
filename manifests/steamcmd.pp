@@ -24,7 +24,8 @@ class steam::steamcmd {
   }
 
   staging::deploy { $steamcmd:
-    source => $steamcmd_url,
-    target => $steamcmd_root,
+    source  => $steamcmd_url,
+    target  => $steamcmd_root,
+    creates => $steamcmd_root,
   }
 }
