@@ -7,8 +7,8 @@ class steam::steamcmd {
   include steam::base
   include staging
 
-  $steamcmd     = 'steamcmd.tar.gz'
-  $steamcmd_url = "http://blog.counter-strike.net/wp-content/uploads/2012/04/${steamcmd}"
+  $steamcmd     = 'steamcmd_linux.tar.gz'
+  $steamcmd_url = "http://media.steampowered.com/client/${steamcmd}"
 
   $steamcmd_root = "${steam::base::home}/steamcmd"
 
